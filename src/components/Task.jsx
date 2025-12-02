@@ -7,6 +7,7 @@ export default function Task({text, tasks, SetTasks}) {
   const deleteTask = (task) => {
     const newTasks = tasks.filter(p => p != task)
     SetTasks(newTasks)
+    localStorage.setItem("tasks", JSON.stringify(newTasks))
   }
 
   return (

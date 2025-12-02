@@ -1,19 +1,18 @@
-import {  useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {  useEffect, useState } from 'react'
 import './App.css'
 import Task from './components/Task'
+import { useLocalStorage } from './hooks/useLocalStorage'
 
 function App() {
   const [task, SetTask] = useState("")
-  const [tasks, SetTasks] = useState([])
+  const [tasks, SetTasks] = useLocalStorage("tasks", []);
 
   return (
     <>
       <div className='container'>
         <div className='section'>
-          <h1>NUEVA NOTA</h1>
-          <textarea wrap='wrap' placeholder='Nueva tarea' value={task} className='inputText' rows="1" onChange={e => SetTask(e.target.value)}/>
+          <h1>NEW TASK</h1>
+          <textarea wrap='wrap' placeholder='TYPE A NEW TASK' value={task} className='inputText' rows="1" onChange={e => SetTask(e.target.value)}/>
           <br />
           <button
           className='primary'  
@@ -24,11 +23,11 @@ function App() {
               SetTasks([...tasks, task])
               SetTask("")
             }
-            }}>AGREGAR</button>
+            }}>ADD</button>
         </div>
         <div className='section'>
-          <h1>TAREAS POR HACER</h1>
-          {tasks.length == 0 && <p style={{fontSize: '20px', fontWeight: "bold"}}>No hay tareas por hacer</p>}
+          <h1>TO DO IT</h1>
+          {tasks.length == 0 && <p style={{fontSize: '20px', fontWeight: "bold"}}>NO TASKS YET</p>}
           {tasks.map((item,index) => (
             <Task
               key={index}
