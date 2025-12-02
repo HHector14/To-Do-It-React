@@ -81,7 +81,7 @@
 }
 
 .task p{
-  width: 60%;
+  width: 55%;
   text-align: left;
   color: #CFCFCF;
   margin: 0px 15px;
@@ -105,17 +105,19 @@
   display: flex;
   align-items: center;   
   justify-content: center;
-  margin: 0 5px; 
 }
 
 .delete{
   border: 2px solid #931010;  
   color: #931010;
+  margin: 0 15px 0 5px; 
+
 }
 
 .delete:hover{
   border: 2px solid red;  
   color: red;
+
 }
 
 .warning{
