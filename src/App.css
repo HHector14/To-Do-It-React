@@ -54,6 +54,16 @@
   padding-bottom: 10px;
 }
 
+.section-small{
+  width: 550px;
+  height: fit-content;
+  background-color: black;
+  margin: 0 30px;
+  border-radius: 12px;
+  padding-bottom: 10px;
+}
+
+
 .inputText{
   max-width: 500px;  /* Ancho máximo permitido */
   max-height: 300px;
@@ -132,16 +142,26 @@
   color: #7B00C2;
 }
 
+.tercary{
+  background-color: #000;
+  border: none;
+  color: #F79F28;
+}
+
+.tercary:hover{
+  background-color: #F9B86244 ;
+  border: none;
+  color: #F79F28;
+}
 
 .primary{
-  background-color: #181818;
-  border: none;
-  color: #152EED;
+  border: 2px solid #3D52F0;  
+  color: #3D52F0;
+  margin: 0 15px 0 5px; 
 }
 
 .primary:hover{
-  background-color: #2E3FFF44 ;
-  border: none;
+  border: 2px solid #152EED;  
   color: #152EED;
+  margin: 0 15px 0 5px; 
 }
-
