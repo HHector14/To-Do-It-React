@@ -1,28 +1,24 @@
-import React from "react";
 import { useState } from "react";
-import { createPortal } from "react-dom";
+import deleteTask from "../hooks/deleteTask";
 
-export default function Task({text, tasks, SetTasks}) {
+export default function Task({ text, tasks, setTasks }) {
   const [completed, setCompleted] = useState(false);
-  const deleteTask = (task) => {
-    const newTasks = tasks.filter(p => p != task)
-    SetTasks(newTasks)
-    localStorage.setItem("tasks", JSON.stringify(newTasks))
-  }
+  
+  const deleteT = deleteTask(text, tasks, setTasks);
 
   return (
-  <>
-    <div className="task">
-      <p className={`${completed ? "task-completed" : ""}`}>
-        {completed ? '' : '- '}
-         {text.toUpperCase()}</p>
-      <button className="warning" 
-      onClick={()=> setCompleted(!completed)}>
-        {completed ? 'DESMARCAR' : 'COMPLETAR'}
-      </button>
-      <button className="delete" onClick={() => deleteTask(text)} >ELIMINAR</button>
-    </div>
-  </>
+    <>
+      <div className="task">
+        <p className={`${completed ? "task-completed" : ""}`}>
+          {completed ? '' : '- '}
+          {text.toUpperCase()}</p>
+        <button className={completed ? "warning" : "tercary"}
+          onClick={() => setCompleted(!completed)}>
+          {completed ? 'UNDO' : 'DONE'}
+        </button>
+        <button className="delete" onClick={() => deleteT(text)} >DELETE</button>
+      </div>
+    </>
   )
 
 }
