@@ -9,7 +9,8 @@ export default function TasksCard({ tasks, setTasks }) {
       {tasks.map((item, index) => (
         <Task
           key={index}
-          text={item}
+          index={index}
+          item={item}
           tasks={tasks}
           setTasks={setTasks}
         />
