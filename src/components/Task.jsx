@@ -1,22 +1,21 @@
 import { useState } from "react";
-import deleteTask from "../hooks/deleteTask";
+import useHandleTask from "../hooks/useHandleTask";
 
-export default function Task({ text, tasks, setTasks }) {
-  const [completed, setCompleted] = useState(false);
-  
-  const deleteT = deleteTask(text, tasks, setTasks);
+export default function Task({ index,item, tasks, setTasks }) {
+  const [completed, setCompleted] = useState(item[1]);
+  const [deleteT, changeStatus] = useHandleTask(tasks, setTasks);
 
   return (
     <>
       <div className="task">
         <p className={`${completed ? "task-completed" : ""}`}>
           {completed ? '' : '- '}
-          {text.toUpperCase()}</p>
+          {item[0].toUpperCase()}</p>
         <button className={completed ? "warning" : "tercary"}
-          onClick={() => setCompleted(!completed)}>
+          onClick={() => changeStatus(setCompleted, index)} >
           {completed ? 'UNDO' : 'DONE'}
         </button>
-        <button className="delete" onClick={() => deleteT(text)} >DELETE</button>
+        <button className="delete" onClick={() => deleteT(item)} >DELETE</button>
       </div>
     </>
   )
