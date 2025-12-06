@@ -13,7 +13,7 @@ export default function Form({ task, setTask, tasks, setTasks }) {
           if (task.trim() == '') {
             window.alert("Ingresa la tarea que deseas agregar")
           } else {
-            setTasks([...tasks, task])
+            setTasks([...tasks, [task, false]])
             setTask("")
           }
         }}>ADD</button>
